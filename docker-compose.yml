@@ -1,0 +1,44 @@
+version: '2'
+services:
+  bakend-10000:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10000:80"
+  bakend-10001:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10001:80"
+  bakend-10002:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10002:80"
+  bakend-10003:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10003:80"
+  bakend-10004:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10004:80"
+  bakend-10005:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "10005:80"
