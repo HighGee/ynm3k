@@ -57,6 +57,7 @@ class MainHandler(MyHandler):
             '/code/502',
             '/size/11k.zip',
             '/size/1k.bin',
+            '/headersize/16k',
             '/slow/3',
             '/slow/4-10',
             '/redirect/301?url=http://www.notsobad.me',
@@ -227,6 +228,23 @@ class RedirectHandler(MyHandler):
             self.write('wrong argument')
 
 
+class HeaderHandler(MyHandler):
+
+    def get(self, size):
+        size = size.lower()
+        try:
+            if 'k' in size:
+                i = int(size.replace('k', '')) * 1024
+            elif 'm' in size:
+                i = int(size.replace('m', '')) * 1024 * 1024
+            else:
+                i = int(size)
+        except ValueError:
+            return self.write('Wrong argument')
+        self.set_cookie('test', 't' * i, path="/")
+        self.write('specified header size page')
+
+
 define("ip", help="ip to bind", default=None)
 define("port", help="port to listen", default=9527)
 define("debug", default=False, help="enable debug?")
@@ -244,6 +262,7 @@ APP = tornado.web.Application([
     (r'/dynamic/(.*)', DynamicHandler),
     (r'/code/(\d+).*', CodeHandler),
     (r'/size/([\d|k|m]+).*', SizeHandler),
+    (r'/headersize/([\d|k|m]+)', HeaderHandler),
     (r'/slow/(\d+)-?(\d+)?.*', SlowHandler),
     (r'/redirect/(.*)', RedirectHandler),
     (r'/*', MainHandler),

@@ -1,0 +1,9 @@
+version: '2'
+services:
+  runner0:
+    image: ynm3k:latest
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "127.0.0.1:10000:80"
