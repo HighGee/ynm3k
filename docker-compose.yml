@@ -1,44 +1,44 @@
 version: '2'
 services:
-  bakend-10000:
+  runner0:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10000:80"
-  bakend-10001:
+      - "127.0.0.1:10000:80"
+  runner1:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10001:80"
-  bakend-10002:
+      - "127.0.0.1:10001:80"
+  runner2:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10002:80"
-  bakend-10003:
+      - "127.0.0.1:10002:80"
+  runner3:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10003:80"
-  bakend-10004:
+      - "127.0.0.1:10003:80"
+  runner4:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10004:80"
-  bakend-10005:
+      - "127.0.0.1:10004:80"
+  runner5:
     image: ynm3k:latest
     restart: always
     volumes:
       - .:/code
     ports:
-      - "10005:80"
+      - "127.0.0.1:10005:80"
